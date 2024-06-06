@@ -1,74 +1,60 @@
-Here's the complete HTML file with the table populated with the provided planetary data and formatted according to your CSS styles:
-
-```html
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Table template</title>
+    <title>Planets data</title>
+    <link href="minimal-table.css" rel="stylesheet" type="text/css">
     <style>
-      html {
-        font-family: sans-serif;
-      }
-
       table {
+        width: 100%;
         border-collapse: collapse;
-        border: 2px solid rgb(200,200,200);
-        letter-spacing: 1px;
-        font-size: 0.8rem;
       }
 
-      td, th {
-        border: 1px solid rgb(190,190,190);
-        padding: 10px 20px;
-      }
-
-      th {
-        background-color: rgb(235,235,235);
-      }
-
-      td {
+      th, td {
+        border: 1px solid black;
+        padding: 8px;
         text-align: center;
       }
 
-      tr:nth-child(even) td {
-        background-color: rgb(250,250,250);
+      th {
+        background-color: #f2f2f2;
       }
 
-      tr:nth-child(odd) td {
-        background-color: rgb(245,245,245);
-      }
-
-      caption {
-        padding: 10px;
+      colgroup col:nth-child(3) {
+        border: 2px solid black;
       }
     </style>
   </head>
   <body>
-    <h1>Table template</h1>
+    <h1>Planets data</h1>
+
     <table>
-      <caption>Data about the planets of our solar system (Planetary facts taken from <a href="http://nssdc.gsfc.nasa.gov/planetary/factsheet/">Nasa's Planetary Fact Sheet - Metric</a>).</caption>
+      <caption>Data about the planets of our solar system (Planetary facts taken from <a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/">Nasa's Planetary Fact Sheet - Metric</a>).</caption>
+      <colgroup>
+        <col span="2">
+        <col style="border: 2px solid black;">
+        <col span="9">
+      </colgroup>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Mass (10<sup>24</sup>kg)</th>
-          <th>Diameter (km)</th>
-          <th>Density (kg/m<sup>3</sup>)</th>
-          <th>Gravity (m/s<sup>2</sup>)</th>
-          <th>Length of day (hours)</th>
-          <th>Distance from Sun (10<sup>6</sup>km)</th>
-          <th>Mean temperature (°C)</th>
-          <th>Number of moons</th>
-          <th>Notes</th>
+          <td colspan="2"></td>
+          <th scope="col">Name</th>
+          <th scope="col">Mass (10<sup>24</sup>kg)</th>
+          <th scope="col">Diameter (km)</th>
+          <th scope="col">Density (kg/m<sup>3</sup>)</th>
+          <th scope="col">Gravity (m/s<sup>2</sup>)</th>
+          <th scope="col">Length of day (hours)</th>
+          <th scope="col">Distance from Sun (10<sup>6</sup>km)</th>
+          <th scope="col">Mean temperature (°C)</th>
+          <th scope="col">Number of moons</th>
+          <th scope="col">Notes</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td colspan="10" style="text-align: left; background-color: rgb(235,235,235);">Terrestrial planets</td>
-        </tr>
-        <tr>
-          <td>Mercury</td>
+          <th rowspan="4" colspan="2" scope="rowgroup">Terrestrial planets</th>
+          <th scope="row">Mercury</th>
           <td>0.330</td>
           <td>4,879</td>
           <td>5427</td>
@@ -80,7 +66,7 @@ Here's the complete HTML file with the table populated with the provided planeta
           <td>Closest to the Sun</td>
         </tr>
         <tr>
-          <td>Venus</td>
+          <th scope="row">Venus</th>
           <td>4.87</td>
           <td>12,104</td>
           <td>5243</td>
@@ -92,7 +78,7 @@ Here's the complete HTML file with the table populated with the provided planeta
           <td></td>
         </tr>
         <tr>
-          <td>Earth</td>
+          <th scope="row">Earth</th>
           <td>5.97</td>
           <td>12,756</td>
           <td>5514</td>
@@ -104,7 +90,7 @@ Here's the complete HTML file with the table populated with the provided planeta
           <td>Our world</td>
         </tr>
         <tr>
-          <td>Mars</td>
+          <th scope="row">Mars</th>
           <td>0.642</td>
           <td>6,792</td>
           <td>3933</td>
@@ -116,13 +102,9 @@ Here's the complete HTML file with the table populated with the provided planeta
           <td>The red planet</td>
         </tr>
         <tr>
-          <td colspan="10" style="text-align: left; background-color: rgb(235,235,235);">Jovian planets</td>
-        </tr>
-        <tr>
-          <td colspan="10" style="text-align: left; background-color: rgb(245,245,245);">Gas giants</td>
-        </tr>
-        <tr>
-          <td>Jupiter</td>
+          <th rowspan="4" scope="rowgroup">Jovian planets</th>
+          <th rowspan="2" scope="rowgroup">Gas giants</th>
+          <th scope="row">Jupiter</th>
           <td>1898</td>
           <td>142,984</td>
           <td>1326</td>
@@ -134,7 +116,7 @@ Here's the complete HTML file with the table populated with the provided planeta
           <td>The largest planet</td>
         </tr>
         <tr>
-          <td>Saturn</td>
+          <th scope="row">Saturn</th>
           <td>568</td>
           <td>120,536</td>
           <td>687</td>
@@ -146,10 +128,8 @@ Here's the complete HTML file with the table populated with the provided planeta
           <td></td>
         </tr>
         <tr>
-          <td colspan="10" style="text-align: left; background-color: rgb(245,245,245);">Ice giants</td>
-        </tr>
-        <tr>
-          <td>Uranus</td>
+          <th rowspan="2" scope="rowgroup">Ice giants</th>
+          <th scope="row">Uranus</th>
           <td>86.8</td>
           <td>51,118</td>
           <td>1271</td>
@@ -161,7 +141,7 @@ Here's the complete HTML file with the table populated with the provided planeta
           <td></td>
         </tr>
         <tr>
-          <td>Neptune</td>
+          <th scope="row">Neptune</th>
           <td>102</td>
           <td>49,528</td>
           <td>1638</td>
@@ -173,10 +153,8 @@ Here's the complete HTML file with the table populated with the provided planeta
           <td></td>
         </tr>
         <tr>
-          <td colspan="10" style="text-align: left; background-color: rgb(235,235,235);">Dwarf planets*</td>
-        </tr>
-        <tr>
-          <td>Pluto</td>
+          <th colspan="2" scope="row">Dwarf planets</th>
+          <th scope="row">Pluto</th>
           <td>0.0146</td>
           <td>2,370</td>
           <td>2095</td>
@@ -185,12 +163,9 @@ Here's the complete HTML file with the table populated with the provided planeta
           <td>5906.4</td>
           <td>-225</td>
           <td>5</td>
-          <td>Declassified as a planet in 2006, but this <a href="http://www.usatoday.com/story/tech/2014/10/02/pluto-planet-solar-system/16578959/">remains controversial</a>.</td>
+          <td>Declassified as a planet in 2006, but this <a href="https://www.usatoday.com/story/tech/2014/10/02/pluto-planet-solar-system/16578959/">remains controversial</a>.</td>
         </tr>
       </tbody>
     </table>
   </body>
 </html>
-```
-
-This HTML file includes all the planetary data, formatted and categorized appropriately. The table header, rows, and notes are structured to ensure clarity and consistency with the provided CSS styles.
