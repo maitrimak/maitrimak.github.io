@@ -1,3 +1,9 @@
+// Name: Maitri Makwana
+// File: assignment4_part1
+// Date: 16th July, 2024
+// Description: This will generate a silly story when the 
+// "Generate random story" button is pressed
+
 // 1. COMPLETE VARIABLE AND FUNCTION DEFINITIONS
 
 const customName = document.getElementById('customname');
@@ -16,7 +22,6 @@ const storyText = 'It was 94 fahrenheit outside, so :insertx: went for a walk. W
 const insertX = ['Willy the Goblin', 'Big Daddy', 'Father Christmas'];
 const insertY = ['the soup kitchen', 'Disneyland', 'the White House'];
 const insertZ = ['spontaneously combusted', 'melted into a puddle on the sidewalk', 'turned into a slug and crawled away'];
-
 
 // 3. EVENT LISTENER AND PARTIAL FUNCTION DEFINITION
 
