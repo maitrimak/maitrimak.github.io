@@ -3,20 +3,25 @@ File: assignment4_part4
 Date: 16th July, 2024
 Description: This is the javascript for bouncing balls */
 
+// Select the canvas element
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
+// Setting the canvas height and width
 const width = (canvas.width = window.innerWidth);
 const height = (canvas.height = window.innerHeight);
 
+// Function to generate a random number
 function random(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+// Function to generate a random background colour
 function randomRGB() {
   return `rgb(${random(0, 255)}, ${random(0, 255)}, ${random(0, 255)})`;
 }
 
+// Shape class to serve as a base for Ball
 class Ball {
   constructor(x, y, velX, velY, color, size) {
     this.x = x;
@@ -27,6 +32,7 @@ class Ball {
     this.size = size;
   }
 
+  // addind method to draw the ball on the canvas
   draw() {
     ctx.beginPath();
     ctx.fillStyle = this.color;
@@ -34,6 +40,7 @@ class Ball {
     ctx.fill();
   }
 
+  // updating the ball's position for collsion
   update() {
     if ((this.x + this.size) >= width) {
       this.velX = -(this.velX);
@@ -55,6 +62,7 @@ class Ball {
     this.y += this.velY;
   }
 
+  // addind method to detect collisions between balls and change colors on collision
   collisionDetect() {
     for (const ball of balls) {
       if (this !== ball) {
@@ -70,8 +78,10 @@ class Ball {
   }
 }
 
+// empty array to hold all the balls
 const balls = [];
 
+// this will create 25 balls with random properties.
 while (balls.length < 25) {
   const size = random(10, 20);
   const ball = new Ball(
@@ -82,14 +92,13 @@ while (balls.length < 25) {
     randomRGB(),
     size,
   );
-
-  balls.push(ball);
 }
-
+// adding the main loop for animation
 function loop() {
   ctx.fillStyle = "rgb(0, 0, 0, 0.25)";
   ctx.fillRect(0, 0, width, height);
 
+  // Draw, update, and check collisions for each ball
   for (const ball of balls) {
     ball.draw();
     ball.update();
@@ -99,4 +108,5 @@ function loop() {
   requestAnimationFrame(loop);
 }
 
+// statting animation loop
 loop();
