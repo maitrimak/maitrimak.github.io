@@ -1,3 +1,9 @@
+/*Name: Maitri Makwana
+File: assignment4_part4
+Date: 16th July, 2024
+Description: This is the javascript for bouncing balls */
+
+
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
