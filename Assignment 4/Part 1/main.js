@@ -1,10 +1,7 @@
-// Name: Maitri Makwana
-// File: assignment4_part1
-// Date: 16th July, 2024
-// Description: This will generate a silly story when the 
-// "Generate random story" button is pressed
-
-// 1. COMPLETE VARIABLE AND FUNCTION DEFINITIONS
+/*Name: Maitri Makwana
+File: assignment4_part4
+Date: 16th July, 2024
+Description: This is the javascript for random story generator */
 
 const customName = document.getElementById('customname');
 const randomize = document.querySelector('.randomize');
@@ -15,15 +12,11 @@ function randomValueFromArray(array){
   return array[random];
 }
 
-// 2. RAW TEXT STRINGS
-
 const storyText = 'It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.';
 
 const insertX = ['Willy the Goblin', 'Big Daddy', 'Father Christmas'];
 const insertY = ['the soup kitchen', 'Disneyland', 'the White House'];
 const insertZ = ['spontaneously combusted', 'melted into a puddle on the sidewalk', 'turned into a slug and crawled away'];
-
-// 3. EVENT LISTENER AND PARTIAL FUNCTION DEFINITION
 
 randomize.addEventListener('click', result);
 
