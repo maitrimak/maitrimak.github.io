@@ -3,6 +3,7 @@ File: assignment4_part4
 Date: 16th July, 2024
 Description: This is the javascript for iamge gallery */
 
+// adding all the images in an array
 const imageFilenames = ['pic1.jpg', 'pic2.jpg', 'pic3.jpg', 'pic4.jpg', 'pic5.jpg'];
 const imageAlts = {
     'pic1.jpg': 'Human Eye',
@@ -12,9 +13,13 @@ const imageAlts = {
     'pic5.jpg': 'Butterfly'
 };
 
+// Select the thumbnail bar
 const thumbBar = document.querySelector('.thumb-bar');
+// Select the element displaying the selected image
 const displayedImage = document.querySelector('.displayed-img');
+// Select the button to toggle.
 const btn = document.querySelector('button');
+// select an overlayying element
 const overlay = document.querySelector('.overlay');
 
 // Loop through the array of images
@@ -26,7 +31,7 @@ for (let i = 0; i < imageFilenames.length; i++) {
     thumbBar.appendChild(newImage);
 }
 
-// Add an event listener for the "click" event on all thumbnails
+// Add an event listener for the "click" 
 thumbBar.addEventListener('click', (event) => {
     if (event.target.tagName === 'IMG') {
         const src = event.target.getAttribute('src');
