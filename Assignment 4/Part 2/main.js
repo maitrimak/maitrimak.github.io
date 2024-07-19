@@ -1,3 +1,8 @@
+/*Name: Maitri Makwana
+File: assignment4_part4
+Date: 16th July, 2024
+Description: This is the javascript for iamge gallery */
+
 const imageFilenames = ['pic1.jpg', 'pic2.jpg', 'pic3.jpg', 'pic4.jpg', 'pic5.jpg'];
 const imageAlts = {
     'pic1.jpg': 'Human Eye',
