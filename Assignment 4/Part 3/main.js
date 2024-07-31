@@ -1,5 +1,5 @@
 /*Name: Maitri Makwana
-File: assignment4_part4
+File: assignment4_part3
 Date: 16th July, 2024
 Description: This is the javascript for bouncing balls */
 
@@ -32,7 +32,7 @@ class Ball {
     this.size = size;
   }
 
-  // addind method to draw the ball on the canvas
+  // Method to draw the ball on the canvas
   draw() {
     ctx.beginPath();
     ctx.fillStyle = this.color;
@@ -40,29 +40,29 @@ class Ball {
     ctx.fill();
   }
 
-  // updating the ball's position for collsion
+  // Updating the ball's position for collision
   update() {
     if ((this.x + this.size) >= width) {
-      this.velX = -(this.velX);
+      this.velX = -this.velX;
     }
 
     if ((this.x - this.size) <= 0) {
-      this.velX = -(this.velX);
+      this.velX = -this.velX;
     }
 
     if ((this.y + this.size) >= height) {
-      this.velY = -(this.velY);
+      this.velY = -this.velY;
     }
 
     if ((this.y - this.size) <= 0) {
-      this.velY = -(this.velY);
+      this.velY = -this.velY;
     }
 
     this.x += this.velX;
     this.y += this.velY;
   }
 
-  // addind method to detect collisions between balls and change colors on collision
+  // Method to detect collisions between balls and change colors on collision
   collisionDetect() {
     for (const ball of balls) {
       if (this !== ball) {
@@ -78,10 +78,10 @@ class Ball {
   }
 }
 
-// empty array to hold all the balls
+// Array to hold all the balls
 const balls = [];
 
-// this will create 25 balls with random properties.
+// Create 25 balls with random properties
 while (balls.length < 25) {
   const size = random(10, 20);
   const ball = new Ball(
@@ -90,10 +90,12 @@ while (balls.length < 25) {
     random(-7, 7),
     random(-7, 7),
     randomRGB(),
-    size,
+    size
   );
+  balls.push(ball); // Add the ball to the balls array
 }
-// adding the main loop for animation
+
+// Main loop for animation
 function loop() {
   ctx.fillStyle = "rgb(0, 0, 0, 0.25)";
   ctx.fillRect(0, 0, width, height);
@@ -108,5 +110,5 @@ function loop() {
   requestAnimationFrame(loop);
 }
 
-// statting animation loop
+// Start animation loop
 loop();
