@@ -1,3 +1,10 @@
+/*
+Name: Maitri Makwana
+File: assignment 5
+Date: 6th August, 2024
+Description: Web Accessibility
+ */
+
 /* || General setup */
 
 html, body {
@@ -52,7 +59,7 @@ p, li, table {
 /* || header layout */
 
 div[class="nav"], article, footer, .secondary {
-  background-color: green;
+  background-color: white;
 }
 
 article, footer, .secondary {
