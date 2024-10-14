@@ -1,9 +1,18 @@
 /*Name: Maitri Makwana
 File: assignment4_part4
 Date: 16th July, 2024
-Description: This is the javascript for iamge gallery */
+Description: This is the JavaScript for image gallery */
 
-// adding all the images in an array
+// Select the thumbnail bar
+const thumbBar = document.querySelector('.thumb-bar');
+// Select the element displaying the selected image
+const displayedImage = document.querySelector('.displayed-img');
+// Select the button to toggle
+const btn = document.querySelector('button');
+// Select an overlaying element
+const overlay = document.querySelector('.overlay');
+
+// Declare an array of image filenames
 const imageFilenames = ['pic1.jpg', 'pic2.jpg', 'pic3.jpg', 'pic4.jpg', 'pic5.jpg'];
 const imageAlts = {
     'pic1.jpg': 'Human Eye',
@@ -13,35 +22,22 @@ const imageAlts = {
     'pic5.jpg': 'Butterfly'
 };
 
-// Select the thumbnail bar
-const thumbBar = document.querySelector('.thumb-bar');
-// Select the element displaying the selected image
-const displayedImage = document.querySelector('.displayed-img');
-// Select the button to toggle.
-const btn = document.querySelector('button');
-// select an overlayying element
-const overlay = document.querySelector('.overlay');
-
 // Loop through the array of images
 for (let i = 0; i < imageFilenames.length; i++) {
     const filename = imageFilenames[i];
     const newImage = document.createElement('img');
-    newImage.setAttribute('src', `images/${filename}`);
-    newImage.setAttribute('alt', imageAlts[filename]);
+    newImage.setAttribute('src', `images/${imageFilenames[i]}`);
+    newImage.setAttribute('alt', imageAlts[filename[i]]);
     thumbBar.appendChild(newImage);
+
+    // Add an event listener for each image in the thumb bar
+    newImage.addEventListener('click', () => {
+        displayedImage.setAttribute('src', `images/${filename}`);
+        displayedImage.setAttribute('alt', imageAlts[filename]);
+    });
 }
 
-// Add an event listener for the "click" 
-thumbBar.addEventListener('click', (event) => {
-    if (event.target.tagName === 'IMG') {
-        const src = event.target.getAttribute('src');
-        const alt = event.target.getAttribute('alt');
-        displayedImage.setAttribute('src', src);
-        displayedImage.setAttribute('alt', alt);
-    }
-});
-
-// Handler to lighten/darken the image
+// Add an event listener to the button for darken/lighten effect
 btn.addEventListener('click', () => {
     const btnClass = btn.getAttribute('class');
     if (btnClass === 'dark') {
